@@ -68,7 +68,7 @@ loginBtn.addEventListener("click", (event) => {
         password <input type="text" name="password" id="password">
         <br> 
         
-        <input id="registerB" type="submit" value="submit">
+        <input id="submitB" type="submit" value="submit">
     </form> 
     `
     let loginForm = document.querySelector("#login")
@@ -96,7 +96,8 @@ loginBtn.addEventListener("click", (event) => {
 function renderUser(user) {
     let body = document.querySelector('body')
     userData= user
-    if (user.cards === undefined) {
+    
+    if (userCards === undefined) {
         body.innerHTML = `
     <h1>${user.name} </h1>
     <div class="modal-content">
@@ -109,7 +110,15 @@ function renderUser(user) {
    <button id="user-cards"> Cards </button>
     `
     } else {
-        renderCards(userData.cards)
+        body.innerHTML = `
+        <h1>${user.name} </h1>
+       
+        <button id="shop"> Shop </button>
+        <button id="user-cards"> Cards </button>
+
+        `
+        renderCards(userCards)
+
     }
     
 
@@ -176,8 +185,3 @@ function renderCards(cards) {
     cards.forEach(renderCard)
 }
 
-function randomizeAndPost(cards) {
-    cards.forEach(card => {
-        
-    });
-}
